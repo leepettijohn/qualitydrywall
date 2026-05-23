@@ -8,99 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{--brand:#691A17;--brand-dark:#4A0F0D;--brand-light:#8B2C28;--ink:#1C1A19;--muted:#5E5856;--line:#E3DCDA;--bg:#FBFAF9;--panel:#FFFFFF;--warm:#F4EFEC;}
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{font-family:'Source Sans 3',sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased;}
-  h1,h2,h3{font-family:'Oswald',sans-serif;letter-spacing:0.01em;line-height:1.1;}
-  a{color:inherit;text-decoration:none;}
-  img{max-width:100%;display:block;}
-  .topbar{background:var(--brand-dark);color:#F0E6E4;font-size:0.85rem;letter-spacing:0.03em;}
-  .topbar .wrap{max-width:1180px;margin:0 auto;padding:7px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;}
-  .topbar a{color:#F0E6E4;font-weight:600;}
-  header.site{background:var(--panel);border-bottom:3px solid var(--brand);position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(0,0,0,0.05);}
-  .nav-wrap{max-width:1180px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;position:relative;}
-  .brand-lockup img{height:62px;width:auto;}
-  nav.main{display:flex;gap:6px;align-items:center;flex-wrap:wrap;}
-  nav.main a{font-family:'Oswald';font-weight:500;text-transform:uppercase;font-size:0.95rem;letter-spacing:0.05em;padding:9px 15px;border-radius:4px;transition:background .15s,color .15s;}
-  nav.main a:hover{background:var(--warm);color:var(--brand);}
-  nav.main a.active{color:var(--brand);}
-  nav.main a.cta{background:var(--brand);color:#fff;}
-  nav.main a.cta:hover{background:var(--brand-light);}
-  .menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;}
-  .menu-toggle span{display:block;width:26px;height:3px;background:var(--brand);margin:5px 0;border-radius:2px;}
-
-  .pagehead{background:linear-gradient(rgba(35,8,7,0.85),rgba(35,8,7,0.9)),repeating-linear-gradient(135deg,#3a0f0d 0,#3a0f0d 2px,#330d0b 2px,#330d0b 22px);color:#fff;text-align:center;padding:70px 24px;}
-  .pagehead .kicker{font-family:'Oswald';text-transform:uppercase;letter-spacing:0.2em;color:#E8B5B2;font-size:0.85rem;margin-bottom:14px;}
-  .pagehead h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:700;text-transform:uppercase;}
-  .pagehead p{max-width:54ch;margin:18px auto 0;color:#F1E3E1;font-size:1.1rem;}
-  .crumbs{font-size:0.85rem;color:#C9A6A4;margin-top:16px;}
-  .crumbs a{color:#E8B5B2;}
-
-  section.block{max-width:1180px;margin:0 auto;padding:80px 24px;}
-  .story{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
-  .story .icon-col{display:flex;justify-content:center;}
-  .story .icon-col img{width:60%;max-width:250px;}
-  .story h2{font-size:2.1rem;color:var(--brand);text-transform:uppercase;margin-bottom:18px;}
-  .story p{color:var(--muted);margin-bottom:16px;}
-
-  .values{background:var(--warm);}
-  .values .inner{max-width:1180px;margin:0 auto;padding:80px 24px;}
-  .values-head{text-align:center;margin-bottom:50px;}
-  .values-head .kicker{font-family:'Oswald';text-transform:uppercase;letter-spacing:0.18em;color:var(--brand);font-weight:600;font-size:0.85rem;margin-bottom:12px;}
-  .values-head h2{font-size:clamp(1.8rem,3.5vw,2.5rem);text-transform:uppercase;}
-  .vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
-  .vcard{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:30px 28px;border-top:4px solid var(--brand);}
-  .vcard h3{font-size:1.25rem;text-transform:uppercase;color:var(--brand);margin-bottom:10px;}
-  .vcard p{color:var(--muted);font-size:0.97rem;}
-
-  .creed-band{max-width:900px;margin:0 auto;padding:80px 24px;text-align:center;}
-  .creed-band blockquote{font-family:'Oswald';font-weight:500;font-size:clamp(1.5rem,3.2vw,2.2rem);line-height:1.3;color:var(--ink);text-transform:uppercase;}
-  .creed-band blockquote .hl{color:var(--brand);}
-  .creed-band cite{display:block;margin-top:22px;font-style:normal;font-size:0.95rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);}
-
-  .factbar{background:var(--brand);color:#fff;}
-  .factbar .wrap{max-width:1180px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(3,1fr);}
-  .fact{padding:34px 18px;text-align:center;border-right:1px solid rgba(255,255,255,0.15);}
-  .fact:last-child{border-right:none;}
-  .fact .num{font-family:'Oswald';font-size:2.3rem;font-weight:700;}
-  .fact .lbl{text-transform:uppercase;letter-spacing:0.07em;font-size:0.8rem;color:#F1D3D1;margin-top:6px;}
-
-  .cta-band{background:linear-gradient(135deg,var(--brand) 0%,var(--brand-dark) 100%);color:#fff;text-align:center;}
-  .cta-band .wrap{max-width:760px;margin:0 auto;padding:72px 24px;}
-  .cta-band h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;text-transform:uppercase;margin-bottom:14px;}
-  .cta-band p{color:#F1D3D1;font-size:1.12rem;margin-bottom:30px;}
-  .btn{font-family:'Oswald';font-weight:600;text-transform:uppercase;letter-spacing:0.06em;padding:14px 28px;border-radius:5px;font-size:1rem;display:inline-block;transition:transform .12s,background .15s;}
-  .btn:active{transform:translateY(1px);}
-  .btn-primary{background:#fff;color:var(--brand);}
-  .btn-primary:hover{background:#F1E3E1;}
-
-  footer.site{background:#231110;color:#D8C9C7;}
-  footer.site .wrap{max-width:1180px;margin:0 auto;padding:56px 24px 28px;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;}
-  footer.site h4{font-family:'Oswald';text-transform:uppercase;letter-spacing:0.08em;color:#fff;margin-bottom:16px;font-size:1.05rem;}
-  footer.site img.flogo{height:78px;width:auto;margin-bottom:16px;}
-  footer.site p,footer.site li{font-size:0.94rem;color:#C4B2B0;line-height:1.9;}
-  footer.site ul{list-style:none;}
-  footer.site a:hover{color:#fff;}
-  .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);max-width:1180px;margin:0 auto;padding:18px 24px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:0.85rem;color:#9E8C8A;}
-
-  @media(max-width:900px){
-    .story{grid-template-columns:1fr;gap:34px;}
-    .story .icon-col{order:-1;}
-    .vgrid{grid-template-columns:1fr;}
-    .factbar .wrap{grid-template-columns:1fr;}
-    .fact{border-right:none;border-bottom:1px solid rgba(255,255,255,0.15);}
-    .fact:last-child{border-bottom:none;}
-    footer.site .wrap{grid-template-columns:1fr;gap:28px;}
-  }
-  @media(max-width:760px){
-    nav.main{display:none;position:absolute;top:100%;left:0;right:0;background:var(--panel);flex-direction:column;align-items:stretch;padding:10px 16px 16px;border-bottom:3px solid var(--brand);box-shadow:0 10px 20px rgba(0,0,0,0.08);}
-    nav.main.open{display:flex;}
-    nav.main a{padding:12px 14px;}
-    .menu-toggle{display:block;}
-  }
-</style>
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
@@ -108,8 +16,8 @@
 
 <header class="site">
   <div class="nav-wrap">
-    <a href="index.html" class="brand-lockup"><img src="assets/logo.png" alt="Quality Drywall Construction — Quality Is Our Name"></a>
-    <button class="menu-toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')"><span></span><span></span><span></span></button>
+    <a href="index.html" class="brand-lockup"><img src="image/logo.png" alt="Quality Drywall Construction — Quality Is Our Name"></a>
+    <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
     <nav class="main" id="nav">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
@@ -135,7 +43,7 @@
       <p>We believe in delivering a top-quality project through every scope of our work — and in providing a high level of service to our clients from the moment we meet, through the first step on the jobsite, until the moment we leave.</p>
       <p>We believe quality begins with an attitude of service, and it ends with quality craftsmanship and a commitment to our projects after completion.</p>
     </div>
-    <div class="icon-col"><img src="assets/icon.png" alt="Quality Drywall craftsman at work"></div>
+    <div class="icon-col"><img src="image/icon.png" alt="Quality Drywall craftsman at work"></div>
   </div>
 </section>
 
@@ -176,12 +84,13 @@
 
 <footer class="site">
   <div class="wrap">
-    <div><img src="assets/logo.png" alt="Quality Drywall Construction" class="flogo"><p>Over 30 years providing commercial and residential building and construction services to Columbia and Central Missouri. Quality Is Our Name.</p></div>
+    <div><img src="image/logo.png" alt="Quality Drywall Construction" class="flogo"><p>Over 30 years providing commercial and residential building and construction services to Columbia and Central Missouri. Quality Is Our Name.</p></div>
     <div><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul></div>
     <div><h4>Contact</h4><ul><li>165 E. HoeDown Drive, Ste A</li><li>Columbia, MO 65203</li><li><a href="tel:+15734491044">Phone: (573) 449-1044</a></li><li>Fax: (573) 874-6899</li></ul></div>
   </div>
   <div class="footer-bottom"><span>&copy; <span id="yr"></span> Quality Drywall Construction. All rights reserved.</span><span>Columbia, Missouri</span></div>
 </footer>
-<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+
+<script src="js/main.js"></script>
 </body>
 </html>
